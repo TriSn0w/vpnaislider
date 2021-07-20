@@ -1,0 +1,136 @@
+  
+// Supporting variables 
+$border-color: #DBDBDB;
+$green: #00CE6C;
+$yellow: #F0C80F;
+$blue: #65B2DE;
+$purple: #A182D2;
+
+
+.pricingtablecontainer {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto;
+  margin: 50px -10px;
+  padding: 30px 0;
+}
+.pricingtable {
+  padding: 0 10px;
+  max-width: 25%;
+  min-width: 250px;
+  flex: 1 0 100%;
+  $P : &;
+  .js-yearlypricing {
+    display: none;
+  }
+  ul {
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    position: relative;
+    padding: 10px;
+  }
+  li {
+    display: flex;
+    border-bottom: 1px solid $border-color;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    &.disable {
+      opacity: 0.5;
+      text-decoration: line-through;
+    }
+  }
+  &__head {
+    border: none !important;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  &__highlight {
+    background: green;
+    border-radius: 6px;
+    color: white;
+    padding: 15px !important;
+    font-weight: bold;
+  }
+  &__popular {
+    background: $yellow;
+    border: none !important;
+    border-radius: 5px 5px 0 0;
+    color: white;
+    padding: 5px !important;
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 100%;
+    text-transform: uppercase;
+  }
+  &__btn {
+    border: none !important;
+  }
+  .popular {
+    box-shadow: 0 0px 10px 5px rgba(0,0,0,0.1);
+    #{$P}__highlight {
+      background: $yellow;
+    }
+  }
+  .silver {
+    #{$P}__highlight {
+      background: $green;
+    }
+  }
+  .diamond {
+    #{$P}__highlight {
+      background: $blue;
+    }
+  }
+  .platinum {
+    #{$P}__highlight {
+      background: $purple;
+    }
+  }
+}
+
+
+// toggle styling
+.slideToggle{
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+  i {
+    margin: 0 15px;
+  }
+}
+.form-switch {
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.form-switch i {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  border: 1px solid #DFDFDF;
+  border-radius: 15px;
+  transition: all 0.3s linear;
+}
+.form-switch i::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 22px;
+  background-color: #00CE6C;
+  border-radius: 15px;
+  transform: translate3d(4px, 3px, 0);
+  transition: all 0.2s ease-in-out;
+}
+
+.form-switch input { display: none; }
+
+// .form-switch input:checked + i { background-color: #0274D6; }
+
+.form-switch input:checked + i::after { transform: translate3d(54px, 3px, 0); }
